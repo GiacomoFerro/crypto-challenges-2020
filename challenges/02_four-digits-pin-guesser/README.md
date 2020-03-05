@@ -1,0 +1,7 @@
+# four-digits-pin-guesser
+four digits pin guesser in Java
+
+src folder contains:
+- Util = TODO
+- PinGenerator = TODO (N.B. it uses Util class)
+- PinGuesser = main class. It creates the generator object and try to guess the real pin by brute force approach.
