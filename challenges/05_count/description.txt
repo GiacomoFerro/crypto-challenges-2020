@@ -1,0 +1,7 @@
+There is ciphertext data,
+
+enc.txt
+
+can you decrypt it?
+
+Hint: count chars
