@@ -13,11 +13,11 @@ public class passwordGenerator{
 	} 
 
     protected Dizionario getDiz(){
-        //TODO
+    	return this.diz;    
     }
 
-    protected void setPass(String s){
-        //TODO
+    protected void setPass(String pass){
+    	this.pass = pass;   
     }
 
     /*funzione che calcola una nuova password
