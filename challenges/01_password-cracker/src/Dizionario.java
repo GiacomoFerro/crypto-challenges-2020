@@ -1,5 +1,15 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Random;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Dizionario {
  
@@ -10,7 +20,6 @@ public class Dizionario {
        @param Path = percorso dei file di parole con cui creare il dizionario.
      */
     public Dizionario(String Path) {
-        this.parole = new ArrayList<String>();
         run(Path);
  
     }
@@ -21,24 +30,24 @@ public class Dizionario {
 
  
     public void run(String Path) {
-       
         try {
-
-            FileReader f = new FileReader(Path);
-            BufferedReader br = new BufferedReader(f);
-            String appoggio = "";
-            
-
-            while ((appoggio = br.readLine()) != null) {
-                
-                parole.add(appoggio);
-
-            }
+             Path filePath = Paths.get(Path);
+             this.parole = Files.readAllLines(filePath);
         } 
         catch (IOException ex) {
+             System.err.println("Un eccezione è stata lanciata: problemi di IO");
         }            
     }   
-    
+ 
+    /**
+     * Metodo util per filtrare una lista con un certo Predicate made by lory
+     * @param list La lista da filtrare
+     * @param pred Il predicato con il quale la lista è filtrata
+     * @return la lista filtrata
+    */
+    protected <T> List<T> filterWithPred(List<T> list, Predicate<T> pred){
+		      return list.stream().filter(pred).collect(Collectors.<T>toList());
+	   }   
  
     /**
      * Ricerca una parola all'interno del Dizionario
@@ -47,42 +56,41 @@ public class Dizionario {
      */
 
     public boolean searchWord(String pWord) {
-        //TODO
+        return this.parole.contains(pWord);
     }
  
     /**
      * Ritorna tutte le parole che contengono pWord.
      * @param pWord La parola da ricercare.
-     * @return Una ArrayList cointenente tutte le parole.
+     * @return Una List cointenente tutte le parole.
      */
-    public ArrayList<String> searchContainsWords(String pWord) {
-        //TODO
-    }
+    public List<String> searchContainsWords(String pWord) {
+		      return this.<String>filterWithPred(this.parole, p -> p.contains(pWord));
+	   }
  
     /**
      * Ritorna tutte le parole che iniziano per pWord.
      * @param pWord La parola da ricercare.
-     * @return Una ArrayList cointenente tutte le parole.
+     * @return Una List cointenente tutte le parole.
      */
-    public ArrayList<String> searchStartWhitWords(String pWord){
-        //TODO
-    }
+    public List<String> searchStartWithWords(String pWord) {
+		      return this.<String>filterWithPred(this.parole, p -> p.startsWith(pWord));
+	   }
  
     /**
      * Ritorna tutte le parole che finiscono per pWord.
      * @param pWord La parola da ricercare.
-     * @return Una ArrayList cointenente tutte le parole.
+     * @return Una List cointenente tutte le parole.
      */
-    public ArrayList<String> searchEndWhitWords(String pWord){
-       //TODO
-    }
+    public List<String> searchEndWithWords(String pWord) {
+		      return this.<String>filterWithPred(this.parole, p -> p.endsWith(pWord));
+	   }
  
     /*
     @return una parola a caso
     */
-
     public String randomWord(){
-        //TODO
+        return this.parole.get(new Random().nextInt(this.parole.size()));
     }
 
 
