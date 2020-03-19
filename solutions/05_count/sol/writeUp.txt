@@ -1,0 +1,8 @@
+This exercise is the encoding of a random permutation of the alphabet. 
+This invalidates the brute force attack (because requires 26! attempts). 
+You must proceed with frequency analysis in order to find out 
+the permutation of the alphabet used as a key.
+
+Check out: https://en.wikipedia.org/wiki/Frequency_analysis
+
+You can use this tool: https://www.dcode.fr/frequency-analysis
