@@ -1,0 +1,5 @@
+Given the following cipher.txt, can you understand the encoding algo?
+
+Can you decrypt using the given key?
+
+Hint: there are the 'init_vector' file as information

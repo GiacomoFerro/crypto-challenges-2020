@@ -1,0 +1,4 @@
+can you break the file and reveal the flag?
+
+We are given a encryption script and the a file which is encrypted with it
+
