@@ -1,0 +1,6 @@
+Given the following ciphertext json.txt (distrib folder) file. 
+Can you understand which coding algorithm has been used?
+
+Can you decode it using the provided key?
+
+hint: json file contains useful information beyond ciphertext..
