@@ -1,0 +1,5 @@
+You are able to recover a small chunk of text (see "book.txt").
+Can you discover the meaning behind these numbers? (1, 9, 4) (4, 2, 8) (4, 8, 3) (7, 1, 5) (8, 10, 1)
+
+Hint: (x,y,z) = word ??
+
